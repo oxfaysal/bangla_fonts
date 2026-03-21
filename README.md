@@ -16,7 +16,7 @@
 
 ## 🖼️ Live Preview
 
-> *🌐 Explore all fonts at [Live Demo](https://oxfaysal.github.io/bangla_fonts_cdn/)*
+> 🌐 Explore all fonts at <a href="https://oxfaysal.github.io/bangla_fonts_cdn/" target="_blank">Live Demo</a>
 
 
 ## 🎨 Supported Fonts
