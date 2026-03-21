@@ -15,7 +15,7 @@ class BanglaFonts {
   static const String kalpurush = "kalpurush";
   static const String liAdornoIrrit = "liadornoirrit";
   static const String mukti = "mukti";
-  static const String nikosh = "nikosh";s
+  static const String nikosh = "nikosh";
   static const String sagar = "sagar";
   static const String shadhinata = "shadhinata";
   static const String showpnocari = "showpnocari";
