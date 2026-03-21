@@ -1,0 +1,1 @@
+This example demonstrates how to use the BanglaFonts widget in a basic Flutter app.

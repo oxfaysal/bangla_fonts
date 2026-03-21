@@ -1,0 +1,21 @@
+name: bangla_fonts_example
+description: Demonstrates how to use the bangla_fonts package.
+publish_to: 'none' # এটি পাবলিশ করার দরকার নেই
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # মেইন প্যাকেজটিকে লোকাল পাথ দিয়ে কানেক্ট করা
+  bangla_fonts:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
