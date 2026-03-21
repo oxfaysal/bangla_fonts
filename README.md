@@ -18,7 +18,7 @@
 | Font Name | Preview Text | Constant |
 |:--- |:--- |:--- |
 | **Kalpurush** | আমার সোনার বাংলা আমি তোমায় ভালোবাসি | `BanglaFonts.kalpurush` |
-| **Shadhinata** | জয় বাংলা জয় বঙ্গবন্ধু | `BanglaFonts.shadhinata` |
+| **Shadhinata** | আমার সোনার বাংলা | `BanglaFonts.shadhinata` |
 | **Siyam Rupali** | বাতাসে বহিছে প্রেম, নয়নে লাগিল নেশা | `BanglaFonts.siyamRupali` |
 | **Nikosh** | বাংলা আমাদের অহংকার, বাংলা আমাদের ভাষা | `BanglaFonts.nikosh` |
 | **Adorsho Lipi** | আদর্শ লিপি দিয়ে শুরু হোক আমাদের শিক্ষা | `BanglaFonts.adorshoLipi` |
