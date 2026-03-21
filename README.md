@@ -13,6 +13,12 @@
 - 🌐 **Reliable CDN:** Hosted on high-speed GitHub Pages.
 - 🎯 **Easy to Use:** Just one line of code to load any font.
 
+
+## 🖼️ Live Preview
+
+> *🌐 Explore all fonts at [Live Demo](https://oxfaysal.github.io/bangla_fonts_cdn/)*
+
+
 ## 🎨 Supported Fonts
 
 | Font Name | Preview Text | Constant |
@@ -29,7 +35,6 @@
 | **Sylheti** | সিলেটি ভাষার মায়ায় জড়ানো জীবন | `BanglaFonts.sylheti` |
 
 
-> *More fonts coming soon! Check the [Online Directory](https://oxfaysal.github.io/bangla_fonts_cdn/)*
 
 ## 🚀 Getting Started
 
@@ -104,7 +109,7 @@ I'm happy to help you with any improvements or fixes!
 ---
 
 <p align="center">
-  <b>Developed with ❤️ by LoomixDev</b><br>
+  <b>Developed with ❤️ by Faysal (LoomixDev)</b><br>
   <i>Special thanks to <b>OmicronLab</b>, <b>Lipighor</b>, and other font creators for their amazing contributions to the Bangla community.</i> <br>
   <i><b> Credits & License:</b> All fonts in this package are the property of their respective creators (OmicronLab, Lipighor, etc.). This package only provides a way to load them dynamically for development and educational purposes. Please respect the license of each font for commercial use. </i>
 </p>
