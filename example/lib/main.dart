@@ -60,7 +60,7 @@ class _FontDemoPageState extends State<FontDemoPage> {
           isShadhinataLoaded = true;
           isLoading = false;
         });
-        
+
         // Show a success message to the user.
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Shadhinata Font Loaded Successfully!')),
@@ -90,14 +90,18 @@ class _FontDemoPageState extends State<FontDemoPage> {
               // Example 1: Kalpurush Font (Pre-loaded in main function).
               Card(
                 elevation: 2,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)),
                 child: const Padding(
                   padding: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
                       Text(
                         "PRE-LOADED FONT (KALPURUSH)",
-                        style: TextStyle(fontSize: 12, color: Colors.blueGrey, letterSpacing: 1.2),
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.blueGrey,
+                            letterSpacing: 1.2),
                       ),
                       SizedBox(height: 15),
                       Text(
@@ -112,14 +116,15 @@ class _FontDemoPageState extends State<FontDemoPage> {
                   ),
                 ),
               ),
-              
+
               const SizedBox(height: 40),
 
               // Example 2: Dynamic Font Loading (Shadhinata font loaded on demand).
               isShadhinataLoaded
                   ? Card(
                       color: Colors.blue.withOpacity(0.05),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15)),
                       child: const Padding(
                         padding: EdgeInsets.all(20.0),
                         child: Text(
@@ -146,7 +151,8 @@ class _FontDemoPageState extends State<FontDemoPage> {
                                 icon: const Icon(Icons.download_rounded),
                                 label: const Text("Load Shadhinata Font"),
                                 style: ElevatedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 24, vertical: 12),
                                 ),
                               ),
                       ],
