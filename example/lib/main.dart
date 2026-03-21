@@ -122,7 +122,7 @@ class _FontDemoPageState extends State<FontDemoPage> {
               // Example 2: Dynamic Font Loading (Shadhinata font loaded on demand).
               isShadhinataLoaded
                   ? Card(
-                      color: Colors.blue.withOpacity(0.05),
+                      color: Colors.blue.withValues(alpha: 0.05),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
                       child: const Padding(

@@ -99,7 +99,14 @@ If you have any questions, feedback, or run into issues while using `bangla_font
 I'm happy to help you with any improvements or fixes!
 
 
+<br>
 
-> Fonts provided by *OmicronLab*
+---
+
+<p align="center">
+  <b>Developed with ❤️ by LoomixDev</b><br>
+  <i>Special thanks to <b>OmicronLab</b>, <b>Lipighor</b>, and other font creators for their amazing contributions to the Bangla community.</i> <br>
+  <i><b> Credits & License:</b> All fonts in this package are the property of their respective creators (OmicronLab, Lipighor, etc.). This package only provides a way to load them dynamically for development and educational purposes. Please respect the license of each font for commercial use. </i>
+</p>
 
 
