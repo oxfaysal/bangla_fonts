@@ -134,7 +134,7 @@ Found a `bug` or want to `add` a new font?
 * Open a Pull Request.
 
 
-
+<br>
 
 ## 📧 Contact & Support
 
