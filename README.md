@@ -99,9 +99,9 @@ If the fonts are not loading or displaying correctly, please check the following
 
 * **HTTP Permissions:** 
   1. **Android:** Ensure you have added internet permission in your `AndroidManifest.xml`:
-  ```xml
-  <uses-permission android:name="android.permission.INTERNET" />
-  ```
+    ```xml
+      <uses-permission android:name="android.permission.INTERNET" />
+    ```
   2. **macOS:** If you are testing on macOS, enable network access in `DebugProfile.entitlements` and `Release.entitlements`.
 
 * **Font Family Name:** Double-check that you are using the constants from the `BanglaFonts` class (e.g., `BanglaFonts.kalpurush`) instead of typing the string manually to avoid typos.
