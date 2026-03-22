@@ -116,7 +116,7 @@ If the fonts are not loading or displaying correctly, please check the following
 
 
 
-### 🤝 Contributing
+## 🤝 Contributing
 Found a `bug` or want to `add` a new font?
 
 * Fork the Project.
