@@ -21,6 +21,16 @@ class BanglaFonts {
   static const String showpnocari = "showpnocari";
   static const String sylheti = "sylheti";
   static const String siyamRupali = "siyamrupali";
+  static const String anekBangla = "anekbangla";
+  static const String hindSiliguri = "hindsiliguri";
+  static const String liDorswadesh = "liadorswadesh";
+  static const String liDhakaia = "lidhakaiyarrr";
+  static const String liLiakoteKota = "liliakotekota";
+  static const String liShamimChitra = "lishamimchitranee";
+  static const String liUllash = "liullashrrr";
+  static const String mina = "mina";
+  static const String solaimanLipi = "solaimanlipi";
+  static const String sutonnyOMJ = "sutonnyomj";
 
   /// Internal cache to track loaded fonts during the current session.
   static final Set<String> _loadedFonts = {};

@@ -16,7 +16,7 @@
 
 ## 🖼️ Live Preview
 
-> 🌐 Explore all fonts at <a href="https://oxfaysal.github.io/bangla_fonts_cdn/" target="_blank">Live Demo</a>
+> 🌐 **Live Demo:** Explore all fonts at [https://oxfaysal.github.io/bangla_fonts_cdn/](https://oxfaysal.github.io/bangla_fonts_cdn/)
 
 
 ## 🎨 Supported Fonts
@@ -33,7 +33,16 @@
 | **Sagar** | সাগর তীরের মিষ্টি হাওয়া গায়ে লাগে বেশ | `BanglaFonts.sagar` |
 | **Showpnocari** | স্বপ্নের ডানায় ভর করে চলি অজানায় | `BanglaFonts.showpnocari` |
 | **Sylheti** | সিলেটি ভাষার মায়ায় জড়ানো জীবন | `BanglaFonts.sylheti` |
-
+| **Anek Bangla** | আধুনিক বাংলার নতুন এক রূপ | `BanglaFonts.anekBangla` |
+| **Hind Siliguri** | প্রযুক্তি ও বাংলা ভাষার মেলবন্ধন | `BanglaFonts.hindSiliguri` |
+| **Mina** | সহজে পড়ার যোগ্য সুন্দর মিনা ফন্ট | `BanglaFonts.mina` |
+| **SolaimanLipi** | নির্ভুল ও পরিচ্ছন্ন অক্ষরের ছোঁয়া | `BanglaFonts.solaimanLipi` |
+| **Li Dhakaia** | পুরান ঢাকার ঐতিহ্যে ঘেরা ফন্ট | `BanglaFonts.liDhakaia` |
+| **Li Dorswadesh** | নিজের দেশের মাটির ঘ্রাণে ভরা | `BanglaFonts.liDorswadesh` |
+| **Li Liakote Kota** | নান্দনিক অক্ষর আর শৈল্পিক টান | `BanglaFonts.liLiakoteKota` |
+| **Li Shamim Chitra** | চিত্রালী মায়ার এক অপূর্ব প্রকাশ | `BanglaFonts.liShamimChitra` |
+| **Li Ullash** | নতুন দিনের নতুন উল্লাস | `BanglaFonts.liUllash` |
+| **SuTonnyOMJ** | চিরচেনা বিজয় কিবোর্ডের প্রিয় ফন্ট | `BanglaFonts.sutonnyOMJ` |
 
 
 ## 🚀 Getting Started
@@ -43,7 +52,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  bangla_fonts: ^1.0.0
+  bangla_fonts: ^1.0.1
 ```
 
 ### 1. Initialize & Load
@@ -109,9 +118,17 @@ I'm happy to help you with any improvements or fixes!
 ---
 
 <p align="center">
-  <b>Developed with ❤️ by Faysal (LoomixDev)</b><br>
-  <i>Special thanks to <b>OmicronLab</b>, <b>Lipighor</b>, and other font creators for their amazing contributions to the Bangla community.</i> <br>
-  <i><b> Credits & License:</b> All fonts in this package are the property of their respective creators (OmicronLab, Lipighor, etc.). This package only provides a way to load them dynamically for development and educational purposes. Please respect the license of each font for commercial use. </i>
+  <img src="https://img.shields.io/badge/Developed%20with-❤️-red?style=for-the-badge" alt="Developed with love">
+  <br>
+  <b>Maintained by <a href="https://github.com/oxfaysal">Faysal (LoomixDev)</a></b>
 </p>
+
+<br>
+
+> [!IMPORTANT]  
+> **Acknowledgments & Credits:** > Heartfelt thanks to **OmicronLab**, **Lipighor**, and all the talented font creators for their incredible contributions to the Bangla typography ecosystem. 
+
+> [!CAUTION]  
+> **License & Disclaimer:** > All fonts included/linked in this package are the intellectual property of their respective creators. This package is intended for development and educational purposes. Please ensure you comply with the specific license of each font for commercial use.
 
 

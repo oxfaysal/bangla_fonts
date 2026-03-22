@@ -1,3 +1,12 @@
+## 1.0.1
+
+* **Major Font Library Expansion**: Added 10 new popular Bangla fonts including Google Fonts (Mina, Hind Siliguri, Anek Bangla) and Lipighor favorites.
+* **Total Font Support**: Now supports 20+ distinct Bangla fonts dynamically.
+* **Improved Constants**: Refined `BanglaFonts` class constants for better developer experience and IDE autocomplete.
+* **Enhanced Documentation**: Updated README with a detailed supported fonts table and proper credits for font creators.
+* **Internal Optimizations**: Minor bug fixes in the font loading logic to ensure smoother rendering on slow connections.
+
+
 ## 1.0.0
 
 * **Initial Release** of `bangla_fonts`.
