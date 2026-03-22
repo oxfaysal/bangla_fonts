@@ -148,7 +148,7 @@ I'm happy to help you with any improvements or fixes!
 ---
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Developed%20with-❤️-red?style=for-the-badge" alt="Developed with love">
+  <img src="https://img.shields.io/badge/Developed%20with-❤️-black?style=for-the-badge" alt="Developed with love">
   <br>
   <b>Maintained by <a href="https://github.com/oxfaysal">Faysal (LoomixDev)</a></b>
 </p>
