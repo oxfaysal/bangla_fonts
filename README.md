@@ -14,10 +14,13 @@
 - 🎯 **Easy to Use:** Just one line of code to load any font.
 
 
+<br>
+
 ## 🖼️ Live Preview
 
 > 🌐 **Live Demo:** Explore all fonts at [https://oxfaysal.github.io/bangla_fonts_cdn/](https://oxfaysal.github.io/bangla_fonts_cdn/)
 
+<br>
 
 ## 🎨 Supported Fonts
 
@@ -44,6 +47,7 @@
 | **Li Ullash** | নতুন দিনের নতুন উল্লাস | `BanglaFonts.liUllash` |
 | **SuTonnyOMJ** | চিরচেনা বিজয় কিবোর্ডের প্রিয় ফন্ট | `BanglaFonts.sutonnyOMJ` |
 
+<br>
 
 ## 🚀 Getting Started
 
