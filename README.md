@@ -62,9 +62,11 @@ It's recommended to load your primary font in the `main()` function to avoid lay
 import 'package:bangla_fonts/bangla_fonts.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   
-  // Load font from CDN or Local Cache
+  // [Optional] Pre-load a specific font at app startup
+  // This prevents the font from "flicking" when it's first displayed.
   await BanglaFonts.load(BanglaFonts.kalpurush);
 
   runApp(const MyApp());
@@ -85,6 +87,34 @@ Text(
   ),
 )
 ```
+
+<br>
+
+## 🛠️ Troubleshooting
+If the fonts are not loading or displaying correctly, please check the following:
+
+* **Internet Connection:** Since the fonts are loaded dynamically from a CDN, an active internet connection is required for the first-time load. Once loaded, they are cached locally for offline use.
+
+* **Ensure Initialization:** If you are pre-loading fonts in `main()`, make sure you have called `WidgetsFlutterBinding.ensureInitialized();` before calling `BanglaFonts.load()`.
+
+* **HTTP Permissions:** 
+  1. **Android:** Ensure you have added internet permission in your `AndroidManifest.xml`:
+  ```xml
+  <uses-permission android:name="android.permission.INTERNET" />
+  ```
+  2. **macOS:** If you are testing on macOS, enable network access in `DebugProfile.entitlements` and `Release.entitlements`.
+
+* **Font Family Name:** Double-check that you are using the constants from the `BanglaFonts` class (e.g., `BanglaFonts.kalpurush`) instead of typing the string manually to avoid typos.
+
+* **Clean Build:** Sometimes Flutter's cache can cause issues. Try running:
+```Bash
+  flutter clean
+  flutter pub get
+```
+
+<br>
+
+
 
 ### 🤝 Contributing
 Found a `bug` or want to `add` a new font?
