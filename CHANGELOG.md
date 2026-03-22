@@ -1,3 +1,11 @@
+## 1.0.2
+
+* **API Documentation**: Added comprehensive dartdoc comments for all public classes and members to reach 100% pub points.
+* **Code Quality**: Added private constructor to `BanglaFonts` to prevent unnecessary instantiation.
+* **Improved Constants**: Refined class constants for better developer experience and IDE autocomplete.
+* **Internal Optimizations**: Minor bug fixes in the font loading logic to ensure smoother rendering on slow connections.
+
+
 ## 1.0.1
 
 * **Major Font Library Expansion**: Added 10 new popular Bangla fonts including Google Fonts (Mina, Hind Siliguri, Anek Bangla) and Lipighor favorites.
