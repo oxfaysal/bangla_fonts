@@ -56,7 +56,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  bangla_fonts: ^1.1.0
+  bangla_fonts: ^1.1.1
 ```
 
 ### 1. Initialize & Load

@@ -1,3 +1,15 @@
+## 1.1.1
+* **Critical Bug Fix**: Resolved a compilation error on Web and Native platforms caused by naming conflicts between dart:io and dart:html File classes.
+
+* **Conflict Resolution**: Introduced dart_io alias for internal file operations to ensure the compiler distinguishes between Mobile filesystem and Browser blobs.
+
+* **Robust Universal Support**: Fixed the "Too few positional arguments" error, ensuring a 100% stable build on all platforms (Android, iOS, Web, and Desktop).
+
+* **Code Cleanup**: Refined the _fetchFromStorageOrNetwork logic to safely bypass path_provider calls on Web, preventing potential runtime crashes.
+
+* **Documentation Update**: Updated internal comments to reflect the new conflict-handling architecture.
+
+
 ## 1.1.0
 * **Universal Web Support**: Major update to support Flutter Web! The package now intelligently detects the platform and handles font loading without crashing on browsers.
 

@@ -2,14 +2,19 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'dart:io' if (dart.library.html) 'dart:html' as io; // Safe import for Web/Mobile
+
+/// [dart_io] alias is used to prevent naming conflicts with 'dart:html' on Web.
+import 'dart:io' as dart_io; 
 import 'package:path_provider/path_provider.dart';
 
 /// A collection of popular Bangla fonts that can be loaded dynamically.
 /// 
 /// Developed by LoomixDev | Faysal.
-/// This class handles downloading, caching (on mobile/desktop), 
-/// and registering fonts in the Flutter engine for all platforms.
+/// 
+/// This class provides static methods to access various Bangla fonts
+/// from a remote CDN. It handles:
+/// * **Web:** Downloading and registering directly in memory.
+/// * **Native (Mobile/Desktop):** Local caching using [path_provider] and [dart_io].
 class BanglaFonts {
   /// Private constructor to prevent instantiation.
   BanglaFonts._();
@@ -84,8 +89,10 @@ class BanglaFonts {
   /// Loads a specific Bangla font by its [fontName].
   ///
   /// The loading process:
-  /// 1. **Web:** Downloads the font directly into memory and registers it.
-  /// 2. **Mobile/Desktop:** Checks local storage, downloads if missing, and registers.
+  /// 1. Check if the font is already loaded in the current session.
+  /// 2. If [kIsWeb], it fetches data directly from the network.
+  /// 3. If on Native, it checks the local filesystem. If missing, it downloads and caches it.
+  /// 4. Registers the font using [FontLoader].
   ///
   /// Returns [true] if successfully loaded, [false] otherwise.
   static Future<bool> load(String fontName) async {
@@ -95,28 +102,26 @@ class BanglaFonts {
       Uint8List fontData;
 
       if (kIsWeb) {
-        // Web platform: Direct fetch from network (No local storage access)
         fontData = await _fetchFromNetwork(fontName);
       } else {
-        // Native platforms: Check local storage first
         fontData = await _fetchFromStorageOrNetwork(fontName);
       }
 
-      // Register the font within the Flutter engine.
       final fontLoader = FontLoader(fontName);
       fontLoader.addFont(Future.value(ByteData.view(fontData.buffer)));
       await fontLoader.load();
 
-      // Mark as loaded in the current session.
       _loadedFonts.add(fontName);
       return true;
     } catch (e) {
-      // Error in loading font
       return false;
     }
   }
 
-  /// Downloads font data from the CDN.
+  /// Downloads font data from the predefined CDN.
+  ///
+  /// Returns [Uint8List] containing the TTF file bytes.
+  /// Throws an [Exception] if the download fails.
   static Future<Uint8List> _fetchFromNetwork(String fontName) async {
     final String fontUrl = '$_baseUrl${fontName.toLowerCase()}.ttf';
     final response = await http.get(Uri.parse(fontUrl));
@@ -128,15 +133,15 @@ class BanglaFonts {
     }
   }
 
-
-  /// Native specific logic: Handles local caching using path_provider and dart:io.
+  /// Handles local caching logic for native platforms (Mobile/Desktop).
+  ///
+  /// Uses [path_provider] to find the support directory and [dart_io] to 
+  /// read/write files. If the platform is Web, it falls back to [_fetchFromNetwork].
   static Future<Uint8List> _fetchFromStorageOrNetwork(String fontName) async {
-    // Web hole direct network theke nibe
     if (kIsWeb) return await _fetchFromNetwork(fontName);
 
-    // Mobile/Desktop-e io prefix dorkar
     final directory = await getApplicationSupportDirectory();
-    final file = io.File('${directory.path}/$fontName.ttf'); // 'io.' add kora hoyeche
+    final file = dart_io.File('${directory.path}/$fontName.ttf');
 
     if (await file.exists()) {
       return await file.readAsBytes();
@@ -147,16 +152,15 @@ class BanglaFonts {
     }
   }
 
-
-  /// Checks if the font is downloaded locally (Only for non-web platforms).
+  /// Checks if the specific [fontName] has been cached in local storage.
   ///
-  /// Always returns [false] on Web as there is no accessible file system.
+  /// Note: Always returns [false] on Web as there is no direct filesystem access.
   static Future<bool> isDownloaded(String fontName) async {
     if (kIsWeb) return false;
     
     try {
       final directory = await getApplicationSupportDirectory();
-      final file = io.File('${directory.path}/$fontName.ttf'); // 'io.' add kora hoyeche
+      final file = dart_io.File('${directory.path}/$fontName.ttf');
       return await file.exists();
     } catch (_) {
       return false;
