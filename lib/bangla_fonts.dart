@@ -1,13 +1,15 @@
-import 'dart:io';
+import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:io' if (dart.library.html) 'dart:html' as io; // Safe import for Web/Mobile
 import 'package:path_provider/path_provider.dart';
 
 /// A collection of popular Bangla fonts that can be loaded dynamically.
-///
-/// This class provides static methods and constants to access various Bangla fonts
-/// like Kalpurush, Hind Siliguri, and more from a remote CDN. It handles 
-/// downloading, local caching, and registering fonts within the Flutter engine.
+/// 
+/// Developed by LoomixDev | Faysal.
+/// This class handles downloading, caching (on mobile/desktop), 
+/// and registering fonts in the Flutter engine for all platforms.
 class BanglaFonts {
   /// Private constructor to prevent instantiation.
   BanglaFonts._();
@@ -81,63 +83,83 @@ class BanglaFonts {
 
   /// Loads a specific Bangla font by its [fontName].
   ///
-  /// The loading process follows these steps:
-  /// 1. Checks if the font is already loaded in the current session.
-  /// 2. Checks if the font file exists in the local application support directory.
-  /// 3. If not found locally, it downloads the font from the predefined CDN.
-  /// 4. Registers the font data with Flutter's [FontLoader].
+  /// The loading process:
+  /// 1. **Web:** Downloads the font directly into memory and registers it.
+  /// 2. **Mobile/Desktop:** Checks local storage, downloads if missing, and registers.
   ///
-  /// Returns [true] if the font is successfully loaded or already present, 
-  /// and [false] if an error occurs during download or registration.
+  /// Returns [true] if successfully loaded, [false] otherwise.
   static Future<bool> load(String fontName) async {
-    // Check if the font is already loaded in this session to avoid redundant work.
     if (_loadedFonts.contains(fontName)) return true;
 
     try {
-      // Get the application support directory for local storage.
-      final directory = await getApplicationSupportDirectory();
-      final file = File('${directory.path}/$fontName.ttf');
+      Uint8List fontData;
 
-      // 1. Check if the font file already exists in local storage.
-      if (!await file.exists()) {
-        final String fontUrl = '$_baseUrl${fontName.toLowerCase()}.ttf';
-
-        final response = await http.get(Uri.parse(fontUrl));
-
-        if (response.statusCode == 200) {
-          // Save the downloaded font bytes to local storage for future use.
-          await file.writeAsBytes(response.bodyBytes);
-        } else {
-          // Failed to download from CDN.
-          return false;
-        }
+      if (kIsWeb) {
+        // Web platform: Direct fetch from network (No local storage access)
+        fontData = await _fetchFromNetwork(fontName);
+      } else {
+        // Native platforms: Check local storage first
+        fontData = await _fetchFromStorageOrNetwork(fontName);
       }
 
-      // 2. Read the font file as bytes.
-      final Uint8List fontData = await file.readAsBytes();
-
-      // 3. Register the font within the Flutter engine.
+      // Register the font within the Flutter engine.
       final fontLoader = FontLoader(fontName);
       fontLoader.addFont(Future.value(ByteData.view(fontData.buffer)));
       await fontLoader.load();
 
       // Mark as loaded in the current session.
       _loadedFonts.add(fontName);
-
       return true;
     } catch (e) {
-      // Log the error or handle it silently.
+      // Error in loading font
       return false;
     }
   }
 
-  /// Checks whether a specific [fontName] has already been downloaded 
-  /// to the device's local storage.
-  ///
-  /// Returns [true] if the file exists, otherwise [false].
-  static Future<bool> isDownloaded(String fontName) async {
+  /// Downloads font data from the CDN.
+  static Future<Uint8List> _fetchFromNetwork(String fontName) async {
+    final String fontUrl = '$_baseUrl${fontName.toLowerCase()}.ttf';
+    final response = await http.get(Uri.parse(fontUrl));
+
+    if (response.statusCode == 200) {
+      return response.bodyBytes;
+    } else {
+      throw Exception("Failed to download font: $fontName");
+    }
+  }
+
+
+  /// Native specific logic: Handles local caching using path_provider and dart:io.
+  static Future<Uint8List> _fetchFromStorageOrNetwork(String fontName) async {
+    // Web hole direct network theke nibe
+    if (kIsWeb) return await _fetchFromNetwork(fontName);
+
+    // Mobile/Desktop-e io prefix dorkar
     final directory = await getApplicationSupportDirectory();
-    final file = File('${directory.path}/$fontName.ttf');
-    return await file.exists();
+    final file = io.File('${directory.path}/$fontName.ttf'); // 'io.' add kora hoyeche
+
+    if (await file.exists()) {
+      return await file.readAsBytes();
+    } else {
+      final bytes = await _fetchFromNetwork(fontName);
+      await file.writeAsBytes(bytes); 
+      return bytes;
+    }
+  }
+
+
+  /// Checks if the font is downloaded locally (Only for non-web platforms).
+  ///
+  /// Always returns [false] on Web as there is no accessible file system.
+  static Future<bool> isDownloaded(String fontName) async {
+    if (kIsWeb) return false;
+    
+    try {
+      final directory = await getApplicationSupportDirectory();
+      final file = io.File('${directory.path}/$fontName.ttf'); // 'io.' add kora hoyeche
+      return await file.exists();
+    } catch (_) {
+      return false;
+    }
   }
 }

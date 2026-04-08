@@ -1,3 +1,16 @@
+## 1.1.0
+* **Universal Web Support**: Major update to support Flutter Web! The package now intelligently detects the platform and handles font loading without crashing on browsers.
+
+* **Platform-Aware Logic**: Added kIsWeb checks to bypass local file system calls (path_provider) when running on web.
+
+* **Improved Stability**: Refactored _fetchFromStorageOrNetwork with conditional logic and io prefixes to ensure 100% stability on Android, iOS, and Desktop.
+
+* **Performance Boost**: Optimized font registration using ByteData.view for faster memory handling.
+
+* **Refined Documentation**: Updated comments and credits to reflect LoomixDev branding and cross-platform capabilities.
+
+
+
 ## 1.0.2
 
 * **API Documentation**: Added comprehensive dartdoc comments for all public classes and members to reach 100% pub points.
